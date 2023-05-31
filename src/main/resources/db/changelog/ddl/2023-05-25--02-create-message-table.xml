@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="Anton Kuchkin" id="2023-05-25--02-create-message-table">
+        <createTable schemaName="public" tableName="message">
+
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="message" type="varchar(5000)">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2023-05-25-create-user-message-table" author="Anton Kuchkin">
+        <createTable schemaName="public" tableName="user_message">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="user_id" type="uuid">
+                <constraints nullable="false"
+                             foreignKeyName="fk_user_id_user_table"
+                             references="users(id)"/>
+            </column>
+
+            <column name="message_id" type="uuid">
+                <constraints nullable="false"
+                             foreignKeyName="fk_message_id_message_table"
+                             references="message(id)"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

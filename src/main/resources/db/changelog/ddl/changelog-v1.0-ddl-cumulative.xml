@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="Anton Kuchkin" id="ddl-v1.0">
+        <tagDatabase tag="1.0"/>
+    </changeSet>
+
+    <include file="db/changelog/ddl/2023-05-25--01-create-user-table.xml"/>
+    <include file="db/changelog/ddl/2023-05-25--02-create-message-table.xml"/>
+
+</databaseChangeLog>

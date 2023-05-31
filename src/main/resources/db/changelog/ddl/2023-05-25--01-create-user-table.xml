@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="Anton Kuchkin" id="2023-05-25--01-create-user-table">
+        <createTable schemaName="public" tableName="users">
+
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="chat_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="telegram" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="email" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
